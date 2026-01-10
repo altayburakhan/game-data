@@ -1,0 +1,9 @@
+name: gamedata_raw.gamedata
+type: ingestr
+connection: game-data
+description: "Ingest raw game events data from Google Sheets to BigQuery bronze layer"
+
+parameters:
+  source_connection: my-gsheets
+  source_table: "1TtGTK9Hdfc4O0-nbpnvQhlu7wi-IWxNHvoNZ2kpUVYo.data" 
+  destination: bigquery
