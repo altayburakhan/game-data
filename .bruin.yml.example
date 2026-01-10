@@ -1,0 +1,11 @@
+default_environment: default
+environments:
+    default:
+        connections:
+            google_cloud_platform:
+                - name: game-data
+                  project_id: your-project-id
+                  service_account_file: "path/to/your/service_account.json"
+            google_sheets:
+                - name: my-gsheets
+                  service_account_file: "path/to/your/service_account.json"
