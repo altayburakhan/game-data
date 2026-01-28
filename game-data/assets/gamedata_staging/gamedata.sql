@@ -17,7 +17,7 @@ SELECT
     LOWER(TRIM(session_id)) AS session_id,
     level,
     SAFE_CAST(revenue AS FLOAT64) AS revenue,
-    LOWER(TRIM(experiment_id)) AS experiment_id,
+    LOWER(TRIM(experiment_id)) AS experiment_id,+++
     LOWER(TRIM(variant)) AS variant,
     EXTRACT(HOUR FROM event_time) AS event_hour,
     EXTRACT(DAY FROM event_time) AS event_day,
