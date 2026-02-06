@@ -2,7 +2,7 @@
 name: dashboard.experiment_summary
 type: bq.sql
 materialization:
-    type: view
+    type: table
 
 depends:
   - python_analytics.player_features
@@ -11,7 +11,7 @@ depends:
 SELECT
     experiment_id,
     variant,
-    COUNT(DISTINCT player_id) AS total_players,
+    COUNT(player_id) AS total_players,
     
     -- Engagement Metrics
     ROUND(AVG(days_active), 2) AS avg_days_active,
