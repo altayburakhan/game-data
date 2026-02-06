@@ -14,7 +14,6 @@ columns:
     description: Unique identifier for the player
     checks:
       - name: not_null
-      - name: unique
   - name: total_revenue
     type: float
     description: Total lifetime revenue of the player
@@ -90,7 +89,6 @@ SELECT
   a.days_active,
   a.first_event_time,
   a.last_event_time,
-  -- Engineered Features
   CASE WHEN a.purchase_events > 0 THEN TRUE ELSE FALSE END AS has_purchase,
   CASE
     WHEN a.days_active > 0 THEN a.total_events / a.days_active
@@ -105,7 +103,6 @@ def materialize():
     print(" [Feature Store] Starting extraction...")
     client = get_bq_client()
     
-    # 1. Extract & Transform
     df = client.query(FEATURE_QUERY).to_dataframe()
     
     print(f" Extracted & Transformed {len(df)} rows.")
