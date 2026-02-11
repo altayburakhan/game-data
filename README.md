@@ -17,7 +17,7 @@ The pipeline implements a progressive data refinement strategy across four disti
 
 ## 🛠 Tech Stack
 
-- **Orchestration**: [Bruin](https://bruin.dev/) (Pipeline management, validation, and execution)
+- **Orchestration**: [Bruin](https://getbruin.com/) (Pipeline management, validation, and execution)
 - **Engine**: Google BigQuery
 - **Languages**: SQL & Python (Pandas)
 - **Validation**: Bruin Native DQ Checks (Unique, Not-Null, Non-Negative)
