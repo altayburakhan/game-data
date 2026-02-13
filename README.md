@@ -42,6 +42,9 @@ The pipeline was used to analyze the `tutorial_v2_test`, revealing:
 - **Data Significance**: Processed ~20,000 unique players with balanced variant distribution, ensuring statistical reliability.
 
 ---
+<img width="1120" height="679" alt="image" src="https://github.com/user-attachments/assets/9e519164-64c8-4348-99a7-f4f7b19f6f39" />
+<img width="1076" height="205" alt="image" src="https://github.com/user-attachments/assets/a9723b00-836f-43b5-b778-cbc21a8a3929" />
+
 
 ## ⚙️ How to Run
 
