@@ -43,7 +43,8 @@ The pipeline was used to analyze the `tutorial_v2_test`, revealing:
 
 ---
 <img width="1120" height="679" alt="image" src="https://github.com/user-attachments/assets/9e519164-64c8-4348-99a7-f4f7b19f6f39" />
-<img width="1076" height="205" alt="image" src="https://github.com/user-attachments/assets/a9723b00-836f-43b5-b778-cbc21a8a3929" />
+<img width="1129" height="151" alt="image" src="https://github.com/user-attachments/assets/9ef62e27-43b5-429b-8ffe-c25eb78be4fa" />
+
 
 
 ## ⚙️ How to Run
