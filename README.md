@@ -52,6 +52,4 @@ The pipeline was used to analyze the `tutorial_v2_test`, revealing:
 1.  **Validate**: Run `bruin validate` to check pipeline health and data quality definitions.
 2.  **Execute**: Run `bruin run` to process the entire pipeline from raw ingestion to the final analytics table.
 
----
 
-> **Data Engineer Note**: This project demonstrates the full lifecycle of data engineering—from raw ingestion and quality assurance to advanced feature modeling and executive reporting.
