@@ -39,7 +39,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 
 from helpers.helpers import get_bq_client
 
-# Define the Feature Logic SQL here (Centralized logic)
 FEATURE_QUERY = """
 WITH base_events AS (
   SELECT
