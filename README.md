@@ -42,6 +42,7 @@ The pipeline was used to analyze the `tutorial_v2_test`, revealing:
 - **Data Significance**: Processed ~20,000 unique players with balanced variant distribution, ensuring statistical reliability.
 
 ---
+<<<<<<< HEAD
 ## 📉 Looker Studio Dashboards
 
 ### 1. User Progression & Funnel Analysis
@@ -59,6 +60,10 @@ This dashboard visualizes the end-to-end user journey, identifying exactly where
 A high-level view of the experiment performance, comparing control and treatment groups. The dashboard highlights key monetization and engagement KPIs, including pre-calculated **Lift** and **ROAS** metrics. This enables stakeholders to immediately see the financial impact of game changes and make definitive "go/no-go" decisions.
 
 <img width="1076" height="205" alt="A/B Test Summary Dashboard" src="https://github.com/user-attachments/assets/a9723b00-836f-43b5-b778-cbc21a8a3929" />
+=======
+<img width="1120" height="679" alt="image" src="https://github.com/user-attachments/assets/9e519164-64c8-4348-99a7-f4f7b19f6f39" />
+<img width="1129" height="151" alt="image" src="https://github.com/user-attachments/assets/9ef62e27-43b5-429b-8ffe-c25eb78be4fa" />
+>>>>>>> 573efbfed8fe7ef0255a23b8f07d7bd7fc0f282f
 
 
 
@@ -67,6 +72,4 @@ A high-level view of the experiment performance, comparing control and treatment
 1.  **Validate**: Run `bruin validate` to check pipeline health and data quality definitions.
 2.  **Execute**: Run `bruin run` to process the entire pipeline from raw ingestion to the final analytics table.
 
----
 
-> **Data Engineer Note**: This project demonstrates the full lifecycle of data engineering—from raw ingestion and quality assurance to advanced feature modeling and executive reporting.
