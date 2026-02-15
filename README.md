@@ -42,8 +42,24 @@ The pipeline was used to analyze the `tutorial_v2_test`, revealing:
 - **Data Significance**: Processed ~20,000 unique players with balanced variant distribution, ensuring statistical reliability.
 
 ---
-<img width="1120" height="679" alt="image" src="https://github.com/user-attachments/assets/9e519164-64c8-4348-99a7-f4f7b19f6f39" />
-<img width="1076" height="205" alt="image" src="https://github.com/user-attachments/assets/a9723b00-836f-43b5-b778-cbc21a8a3929" />
+## 📉 Looker Studio Dashboards
+
+### 1. User Progression & Funnel Analysis
+*Powered by `player_with_events.sql`*
+
+This dashboard visualizes the end-to-end user journey, identifying exactly where players drop off within the game funnel. By tracking the last event reached by each player, we can pinpoint specific levels or tutorial steps that cause friction, allowing for data-driven adjustments to the game's difficulty and onboarding flow.
+
+<img width="1120" height="679" alt="User Progression Analysis" src="https://github.com/user-attachments/assets/9e519164-64c8-4348-99a7-f4f7b19f6f39" />
+
+---
+
+### 2. A/B Testing Executive Summary
+*Powered by `experiment_summary.sql`*
+
+A high-level view of the experiment performance, comparing control and treatment groups. The dashboard highlights key monetization and engagement KPIs, including pre-calculated **Lift** and **ROAS** metrics. This enables stakeholders to immediately see the financial impact of game changes and make definitive "go/no-go" decisions.
+
+<img width="1076" height="205" alt="A/B Test Summary Dashboard" src="https://github.com/user-attachments/assets/a9723b00-836f-43b5-b778-cbc21a8a3929" />
+
 
 
 ## ⚙️ How to Run
