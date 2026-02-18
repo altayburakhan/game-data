@@ -1,70 +1,61 @@
-# Game Analytics & A/B Testing Pipeline
+# Game Analytics: Professional Data Engineering Pipeline
 
-A production-grade Data Engineering pipeline designed to process mobile F2P game events, following the **Medallion Architecture**. This project matures raw event data into a high-value **Feature Store** and a **Semantic Layer** for A/B testing analysis.
+> [!NOTE]
+> **Work in Progress**: This project is currently under active development. The pipeline is being refined, and some components may not be fully executable in their current state.
 
----
 
-## 🏗 Architecture Overview
-
-The pipeline implements a progressive data refinement strategy across four distinct layers:
-
-1.  **🥉 Bronze (Raw)**: Ingests raw event logs from Google Sheets into BigQuery using Bruin's ingestion capabilities.
-2.  **🥈 Silver (Staging & Clean)**: Standardizes schemas, performs type casting, and cleanses data (handling NULLs, casing, and white-spaces) via modular SQL assets.
-3.  **🥇 Advanced Silver (Feature Store)**: A **Python (Pandas/BigQuery)** based asset that aggregates granular events into player-centric profiles. It calculates over 10+ behavioral and monetization metrics (ARPU, sessions, active days, etc.), serving as a foundation for both BI and Machine Learning.
-4.  **💎 Gold (Semantic Layer)**: A final materialization (`experiment_summary`) that pre-calculates core KPIs and automated **A/B Test Lift (Delta)** metrics. This layer is optimized for direct consumption by Looker Studio.
+A production-grade, end-to-end data pipeline designed for a mobile Free-to-Play (F2P) game. This project focuses on **Engineering Robustness**, **Data Quality**, and the **Medallion Architecture** to transform raw event logs into high-integrity datasets ready for A/B testing and financial analysis.
 
 ---
 
-## 🛠 Tech Stack
+## 🏗 Medallion Architecture & Data Flow
 
-- **Orchestration**: [Bruin](https://getbruin.com/) (Pipeline management, validation, and execution)
-- **Engine**: Google BigQuery
-- **Languages**: SQL & Python (Pandas)
-- **Validation**: Bruin Native DQ Checks (Unique, Not-Null, Non-Negative)
-- **Visualization**: Looker Studio
+The pipeline is architected across four distinct layers to ensure a clean "Single Source of Truth" (SSOT):
 
----
-
-## 🚀 Key Engineering Features
-
-- **Polyglot Pipeline**: Combines the efficiency of SQL Pushdown for heavy lifting with the flexibility of Python for feature engineering.
-- **Automated Data Quality**: Every pipeline run is guarded by automated checks ensuring data integrity before reaching the dashboard.
-- **Self-Service Analytics**: Business stakeholders can access pre-calculated A/B test results (Lift/Delta) without writing a single line of SQL.
-- **User Funnel Modeling**: Includes specific logic to track user progression through game levels/tutorials to identify drop-off points.
-
----
-
-## 📊 Business Insights
-
-The pipeline was used to analyze the `tutorial_v2_test`, revealing:
-- **ARPU Lift**: **+200%** increase in average revenue per user in the treatment group.
-- **Conversion Lift**: **+87%** increase in the ratio of paying users.
-- **Data Significance**: Processed ~20,000 unique players with balanced variant distribution, ensuring statistical reliability.
-
----
-## 📉 Looker Studio Dashboards
-
-### 1. User Progression & Funnel Analysis
-*Powered by `player_with_events.sql`*
-
-This dashboard visualizes the end-to-end user journey, identifying exactly where players drop off within the game funnel. By tracking the last event reached by each player, we can pinpoint specific levels or tutorial steps that cause friction, allowing for data-driven adjustments to the game's difficulty and onboarding flow.
-
-<img width="1120" height="679" alt="User Progression Analysis" src="https://github.com/user-attachments/assets/9e519164-64c8-4348-99a7-f4f7b19f6f39" />
+1.  **🥉 Bronze (Raw Ingestion)**:
+    *   **Logic**: High-fidelity ingestion from source (Google Sheets) directly to BigQuery.
+    *   **Value**: Maintains a permanent, immutable audit trail of raw data.
+2.  **🥈 Silver (Consolidation & Cleansing)**:
+    *   **Logic**: Modular SQL assets (`gamedata_staging`) that standardize schemas, handle type casting, and perform mechanical cleansing (TRIM/LOWER/NULL handling).
+    *   **Value**: Provides a reliable foundation for all downstream analytical models.
+3.  **🥇 Advanced Silver (Feature Store - Python)**:
+    *   **Logic**: A **Polyglot Asset** combining SQL for heavy computation and **Python (Pandas)** for complex behavioral aggregation.
+    *   **Value**: Transforms granular logs into player-centric profiles (ARPU, sessions, residency), serving as a reusable Feature Store for ML and BI.
+4.  **💎 Gold (Semantic Layer)**:
+    *   **Logic**: Implements a self-contained analytics view (`experiment_summary`) with automated **A/B Test Lift** and **ROAS** calculations performed at the database level.
+    *   **Value**: Decouples business logic from visualization tools, ensuring "Zero-SQL" requirement for business stakeholders.
 
 ---
 
-### 2. A/B Testing Executive Summary
-*Powered by `experiment_summary.sql`*
+## 🚀 Engineering Highlights
 
-A high-level view of the experiment performance, comparing control and treatment groups. The dashboard highlights key monetization and engagement KPIs, including pre-calculated **Lift** and **ROAS** metrics. This enables stakeholders to immediately see the financial impact of game changes and make definitive "go/no-go" decisions.
+### 🐍 Polyglot Pipeline Engineering
+Instead of a pure SQL approach, this pipeline utilizes **Python-integrated assets** within the Bruin orchestrator. This allows for:
+- **Matrix-style aggregations** that are difficult to manage in pure SQL.
+- **Pythonic Testing**: Integration of custom logic for financial simulation (CPI/ROAS).
+- **ML Readiness**: The output of the Advanced Silver layer is directly consumable by Scikit-learn or PyTorch for future Churn/LTV prediction.
 
-<img width="1076" height="205" alt="A/B Test Summary Dashboard" src="https://github.com/user-attachments/assets/a9723b00-836f-43b5-b778-cbc21a8a3929" />
+### ✅ Automated Data Quality (DQ) Guardrails
+Engineering for reliability means "failing fast." The pipeline is guarded by **Bruin Native Validation Checks**:
+- **Uniqueness**: Ensuring `player_id` integrity at the feature level.
+- **Sanity Ranges**: `non_negative` checks on revenue and `positive` checks on engagement metrics.
+- **Completeness**: `not_null` constraints on critical join keys and timestamps.
 
+### 🧬 Professional SQL Patterns
+The Gold layer utilizes advanced SQL concepts for scalability:
+- **Self-Joins & Union Patterns**: Automated comparison of A/B test variants against the control group.
+- **Defensive SQL**: Widespread use of `SAFE_DIVIDE`, `NULLIF`, and `COALESCE` to prevent pipeline crashes on outlier or missing data.
 
+---
 
-## ⚙️ How to Run
+## 🛠 Technology Stack
 
-1.  **Validate**: Run `bruin validate` to check pipeline health and data quality definitions.
-2.  **Execute**: Run `bruin run` to process the entire pipeline from raw ingestion to the final analytics table.
+- **Orchestration**: [Bruin](https://getbruin.com/) (Managing dependencies, materializations, and validations)
+- **Data Warehouse**: Google BigQuery
+- **Feature Engineering**: Python (Pandas)
+- **Data Modeling**: SQL (Modular BigQuery dialect)
+- **Validation**: Bruin DQ Framework
 
+---
 
+> **Note**: This project serves as a demonstration of **Defensive Data Engineering**. It prioritizes data integrity and architectural modularity, ensuring that the final "Gold" data is trustable, scalable, and fully documented.
