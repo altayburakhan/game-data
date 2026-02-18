@@ -1,7 +1,7 @@
 # Game Analytics: Professional Data Engineering Pipeline
 
 > [!NOTE]
-> **Work in Progress**: This project is currently under active development. The pipeline is being refined, and some components may not be fully executable in their current state.
+> **Work in Progress**: I’m currently working on this project and actively improving the pipeline.
 
 
 A production-grade, end-to-end data pipeline designed for a mobile Free-to-Play (F2P) game. This project focuses on **Engineering Robustness**, **Data Quality**, and the **Medallion Architecture** to transform raw event logs into high-integrity datasets ready for A/B testing and financial analysis.
@@ -56,6 +56,4 @@ The Gold layer utilizes advanced SQL concepts for scalability:
 - **Data Modeling**: SQL (Modular BigQuery dialect)
 - **Validation**: Bruin DQ Framework
 
----
 
-> **Note**: This project serves as a demonstration of **Defensive Data Engineering**. It prioritizes data integrity and architectural modularity, ensuring that the final "Gold" data is trustable, scalable, and fully documented.
