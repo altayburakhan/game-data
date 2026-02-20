@@ -1,6 +1,7 @@
 /* @bruin
 name: gamedata_staging.gamedata
 type: bq.sql
+description: "Silver layer table that applies basic normalization and type casting on raw game event data. Includes trimming and lowercasing of identifiers, safe revenue casting, derived date/time fields, and load timestamp."
 materialization:
     type: table
     strategy: create+replace

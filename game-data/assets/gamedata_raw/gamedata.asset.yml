@@ -5,5 +5,5 @@ description: "Ingest raw game events data from Google Sheets to BigQuery bronze 
 
 parameters:
   source_connection: my-gsheets
-  source_table: "1TtGTK9Hdfc4O0-nbpnvQhlu7wi-IWxNHvoNZ2kpUVYo.data" 
+  source_table: "1TtGTK9Hdfc4O0-nbpnvQhlu7wi-IWxNHvoNZ2kpUVYo.data"
   destination: bigquery

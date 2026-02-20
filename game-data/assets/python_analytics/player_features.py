@@ -1,6 +1,7 @@
 """ @bruin
 name: python_analytics.player_features
 type: python
+description: "I only added  these columns to the data quality checks. Because of the most critical data points for the analysis."
 materialization:
   type: table
   strategy: create+replace
