@@ -4,7 +4,9 @@ type: bq.sql
 description: "Silver layer table that applies basic normalization and type casting on raw game event data. Includes trimming and lowercasing of identifiers, safe revenue casting, derived date/time fields, and load timestamp."
 materialization:
     type: table
-    strategy: create+replace
+    strategy: time_interval
+    time_granularity: date
+    incremental_key: dt
 
 depends:
   - gamedata_raw.gamedata
@@ -25,4 +27,5 @@ SELECT
     CURRENT_TIMESTAMP() AS loaded_at
 
 FROM gamedata_raw.gamedata
+WHERE date(event_time) BETWEEN '{{ start_date }}' AND '{{ end_date }}'
 

@@ -13,6 +13,7 @@ WITH events_with_stage AS (
   SELECT
     player_id,
     event_time,
+    dt AS event_date,
     CASE
       WHEN event_name = 'install' THEN 0
       WHEN event_name = 'tutorial_complete' THEN 1
@@ -24,7 +25,8 @@ last_step as (
   SELECT
     player_id,
     stage AS level,
-    event_time AS last_stage_time
+    event_time AS last_stage_time,
+    event_date
   FROM events_with_stage
   QUALIFY ROW_NUMBER() 
   OVER (
@@ -36,6 +38,7 @@ SELECT
   player_id,
   level,
   last_stage_time,
+  event_date,
   CASE level
     WHEN 0 THEN '0- install'
     WHEN 1 THEN '1- tutorial_complete'
