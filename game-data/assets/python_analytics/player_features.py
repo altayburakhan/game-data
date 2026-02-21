@@ -1,7 +1,7 @@
 """ @bruin
 name: python_analytics.player_features
 type: python
-description: "I only added  these columns to the data quality checks. Because of the most critical data points for the analysis."
+description: "I only added  these columns to the data quality checks. Because of the most critical data points for the analysis. I dont add Primary key for this because i use crate and replace strategy it deletes and create table everytime. "
 materialization:
   type: table
   strategy: create+replace
