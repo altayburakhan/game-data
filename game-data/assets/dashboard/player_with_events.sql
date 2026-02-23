@@ -34,13 +34,6 @@ columns:
     type: string
     description: Human-readable label for the stage (e.g. '2- level_1_completed')
 @bruin */
-
--- ============================================================
--- STEP 1: Assign a numeric stage to each event.
--- install=0, tutorial_complete=1, level_complete=1+level.
--- Other events (session_start, purchase) produce NULL stage
--- and are naturally excluded by the window function in step 2.
--- ============================================================
 WITH events_with_stage AS (
   SELECT
     player_id,
@@ -54,11 +47,6 @@ WITH events_with_stage AS (
   FROM gamedata.gamedata
 ),
 
--- ============================================================
--- STEP 2: Pick the single highest stage per player.
--- Tie-break: if two events share the same stage, take the
--- earliest event_time (first occurrence of that milestone).
--- ============================================================
 last_step AS (
   SELECT
     player_id,
@@ -72,9 +60,6 @@ last_step AS (
   ) = 1
 )
 
--- ============================================================
--- STEP 3: Attach a human-readable label for BI consumption.
--- ============================================================
 SELECT
   player_id,
   level,

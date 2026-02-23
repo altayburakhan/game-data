@@ -6,6 +6,9 @@ materialization:
   type: table
   strategy: create+replace
 connection: game-data
+secrets:
+  - key: game-data
+    inject_as: GOOGLE_CLOUD_CREDENTIALS
 depends:
   - gamedata.gamedata
 

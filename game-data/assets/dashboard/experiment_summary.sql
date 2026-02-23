@@ -24,8 +24,6 @@ columns:
     description: "Experiment variant: 'control', 'treatment', or 'absolute_delta' (lift row)"
     checks:
       # Only check unique to this Gold layer: upstream layers already guarantee not_null on player_id,
-      # variant, revenue (non_negative), days_active (positive) and install_date (not_null).
-      # Here we only validate that no unexpected variant label slips through the aggregation.
       - name: accepted_values
         value: ["control", "treatment", "absolute_delta"]
   - name: total_players
@@ -57,11 +55,6 @@ columns:
     description: Share of players who were active on more than one day (days_active > 1)
 @bruin */
 
--- ============================================================
--- STEP 1: Per-variant aggregated metrics
--- Source: python_analytics.player_features (Advanced Silver / Feature Store)
--- Each row = one variant (control / treatment) within an experiment
--- ============================================================
 WITH metrics AS (
     SELECT
         experiment_id,
@@ -79,13 +72,6 @@ WITH metrics AS (
     GROUP BY 1, 2
 ),
 
--- ============================================================
--- STEP 2: Absolute lift (delta) — treatment minus control
--- Produces a synthetic 'absolute_delta' row per experiment
--- showing the raw uplift across all key metrics.
--- SAFE_DIVIDE is used in step 1 to prevent division-by-zero
--- crashes on outlier or sparse data.
--- ============================================================
 delta AS (
     SELECT
         t.experiment_id,
@@ -107,10 +93,6 @@ delta AS (
     WHERE t.variant != 'control'
 )
 
--- ============================================================
--- STEP 3: Final output — stack metrics + delta rows,
--- ordered for easy reading: control → treatment → delta
--- ============================================================
 SELECT *
 FROM (
     SELECT * FROM metrics
