@@ -156,9 +156,14 @@ The main dashboard includes:
 - **Tutorial and early‑level completion rates**
 - **Variant‑based comparison for key metrics (conversion, revenue, progression)**
 
-Dashboard preview:
+Dashboard previews:
+player_with_events.sql (LINK : https://lookerstudio.google.com/reporting/2c9f1083-ea12-440f-9901-ae17fb9e29ec):
 
-![Looker Studio dashboard](assets/looker-studio-dashboard.png)
+<img width="1196" height="553" alt="Screenshot 2026-03-03 000539" src="https://github.com/user-attachments/assets/e7035542-984f-4ba9-9156-b8659e56cd0a" />
+
+experiment_summary.sql (LINK : https://lookerstudio.google.com/reporting/8cc25a59-6f74-41bd-b87b-27d574a1c54d):
+
+<img width="1136" height="142" alt="image" src="https://github.com/user-attachments/assets/61d84f63-1a60-42e3-aec0-53040b9bfb36" />
 
 ---
 
