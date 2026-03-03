@@ -170,6 +170,10 @@ My Pipeline (Bruin)
 
 <img width="1379" height="322" alt="image" src="https://github.com/user-attachments/assets/66ab6004-7a72-412b-bc33-e8998739a8d5" />
 
+I set it one times a day
+
+<img width="1384" height="578" alt="image" src="https://github.com/user-attachments/assets/d77f5af0-2b70-4636-904f-8d2dc3de4592" />
+
 ---
 
 ## Technology Stack
