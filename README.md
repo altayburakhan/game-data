@@ -50,7 +50,6 @@ The pipeline follows a layered Medallion Architecture with a single source of tr
      - `game-data/assets/dashboard/player_with_events.sql`
    - **`experiment_summary`**:
      - A/B test metrics and lift calculations
-     - ROAS‑ready revenue metrics
      - Metrics like `total_players`, `buyers`, `conversion_rate`, `ARPU`, `ARPPU`, `avg_days_active`, `avg_sessions`, `retention_rate`
    - **`player_with_events`**:
      - Funnel‑oriented view of each player’s latest step
