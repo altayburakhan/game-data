@@ -165,6 +165,11 @@ experiment_summary.sql (LINK : https://lookerstudio.google.com/reporting/8cc25a5
 
 <img width="1136" height="142" alt="image" src="https://github.com/user-attachments/assets/61d84f63-1a60-42e3-aec0-53040b9bfb36" />
 
+
+My Pipeline (Bruin)
+
+<img width="1379" height="322" alt="image" src="https://github.com/user-attachments/assets/66ab6004-7a72-412b-bc33-e8998739a8d5" />
+
 ---
 
 ## Technology Stack
