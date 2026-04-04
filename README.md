@@ -2,7 +2,9 @@
 
 An end-to-end data engineering project built for a mobile Free-to-Play (F2P) game. It ingests raw player events, transforms them through a layered architecture, and delivers analytics-ready datasets for A/B testing, funnel analysis, and player segmentation.
 
-> **Note:** The dataset used in this project is synthetically generated via `adhoc/main-dataset/generate_game_events.py` — simulating 20,000 players across a controlled A/B experiment.
+> **Status:**  My raw data include only two dates (Jan 1 and Feb 1), so I could not add retention metrics due to lack of data.
+
+> **Note:** The sample data used here is custom generated using adhoc/main-dataset/generate_game_events.py
 
 ---
 
