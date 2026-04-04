@@ -6,7 +6,6 @@ This repository contains a **production-grade, end-to-end analytics pipeline** f
 It implements a **Medallion Architecture**, **strong data quality controls**, and a **polyglot (SQL + Python) feature store** to turn raw event logs into trustworthy datasets for:
 - **A/B test analysis**
 - **Funnel and retention analysis**
-- **Revenue / ROAS analysis**
 - **Player segmentation and ML features**
 
 > **Status**: My raw data include only two dates (Jan 1 and Feb 1), so I could not add retention metrics due to lack of data.
