@@ -2,10 +2,8 @@
 name: dashboard.player_with_events
 type: bq.sql
 description: >
-  Gold layer funnel table showing each player's furthest reached stage in the game.
-  Maps install → tutorial_complete → level_1..10_completed into a numeric stage,
-  then picks the single highest stage per player (last_step) using a window function.
-  Designed for funnel/drop-off analysis in BI tools. One row per player.
+  Funnel table showing the furthest stage each player reached, from install through level 10.
+  One row per player.
 
 materialization:
   type: table

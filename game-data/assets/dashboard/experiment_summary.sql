@@ -2,11 +2,8 @@
 name: dashboard.experiment_summary
 type: bq.sql
 description: >
-  Gold layer summary table for A/B test analysis.
-  Computes per-variant engagement and monetization metrics (ARPU, ARPPU, conversion rate,
-  retention) from the player feature store, then calculates the absolute delta between
-  the treatment and control groups to quantify experiment lift.
-  Designed for "zero-SQL" consumption by BI tools and business stakeholders.
+  A/B test summary table. Computes engagement and monetization metrics per variant
+  and adds an absolute_delta row to show the lift between control and treatment.
 
 materialization:
     type: table
