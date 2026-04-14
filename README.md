@@ -2,7 +2,7 @@
 
 An end-to-end data pipeline built around a synthetic mobile F2P game. Raw player events flow through a layered architecture and land in analytics-ready tables used for A/B testing, funnel tracking, and player segmentation.
 
-The dataset is generated with `adhoc/main-dataset/generate_game_events.py` — 20,000 simulated players across a controlled experiment.
+The dataset is fully synthetic. I generated 20,000 simulated players using a custom Python script (`adhoc/main-dataset/generate_game_events.py`).
 
 > **Note:** Raw data only covers two dates (Jan 1 and Feb 1), so retention metrics couldn't be included due to insufficient data.
 
